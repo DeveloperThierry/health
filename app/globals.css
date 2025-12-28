@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "tailwindcss-animate"
+@plugin "tailwindcss-animate";
 /* ========================================== 1. THEME DEFINITIONS */
 @theme inline {
   --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui;
