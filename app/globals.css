@@ -345,6 +345,10 @@
          focus-visible:ring-0 focus-visible:ring-offset-0;
 }
 
+.copyright {
+  @apply text-[14px] font-normal justify-items-end text-center text-dark-600 xl:text-left;
+}
+
 }
 
 

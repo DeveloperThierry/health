@@ -183,7 +183,7 @@ const RegisterForm = ({ user }: { user: User }) => {
           />
             <CustomFormField
             control={form.control}
-            fieldType={FormFieldType.INPUT}
+            fieldType={FormFieldType.PHONE_INPUT}
             name="emergencyContactNumber"
             label="Emergency Contact Number"
             placeholder="(555) 123-4567"
