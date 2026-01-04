@@ -16,6 +16,10 @@ import Image from "next/image";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { E164Number } from "libphonenumber-js/core";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { Select, SelectContent, SelectTrigger, SelectValue } from "./ui/select";
+import { Textarea } from "./ui/textarea";
 
 interface CustomProps {
   control: Control<any>;
@@ -27,13 +31,22 @@ interface CustomProps {
   iconAlt?: string;
   disabled?: boolean;
   dateFormat?: string;
-  showTimeSelect?: string;
+  showTimeSelect?: boolean;
   children?: React.ReactNode;
   renderSkeleton?: (field: any) => React.ReactNode;
 }
 
 const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
-  const { iconSrc, fieldType, iconAlt, placeholder } = props;
+  const {
+    iconSrc,
+    fieldType,
+    iconAlt,
+    placeholder,
+    showTimeSelect,
+    dateFormat,
+    renderSkeleton,
+    disabled
+  } = props;
   switch (fieldType) {
     case FormFieldType.INPUT:
       return (
@@ -70,7 +83,59 @@ const RenderField = ({ field, props }: { field: any; props: CustomProps }) => {
           />
         </FormControl>
       );
-  }
+    case FormFieldType.DATE_PICKER:
+      return (
+        <div className="flex rounded-md border border-dark-500 bg-dark-400">
+          <Image
+            alt="calendar"
+            src="/assets/icons/calendar.svg"
+            height={24}
+            width={24}
+            className="ml-2"
+          />
+          <FormControl>
+            <DatePicker
+              selected={field.value}
+              onChange={(date: Date | null) => field.onChange(date)}
+              dateFormat={dateFormat ?? "MM/DD/YYYY"}
+              timeInputLabel="Time:"
+              showTimeSelect={showTimeSelect ?? false}
+              className="date-picker"
+              wrapperClassName="w-full"
+              placeholderText="Select a date"
+            />
+          </FormControl>
+        </div>
+      );
+    case FormFieldType.SKELETON:
+      return renderSkeleton ? renderSkeleton(field) : null;
+    case FormFieldType.SELECT:
+      return (
+        <FormControl>
+          <Select onValueChange={field.onChange} defaultValue={field.value}>
+            <FormControl >
+              <SelectTrigger className="shad-select-trigger w-full">
+                <SelectValue placeholder={placeholder} />
+              </SelectTrigger>
+            </FormControl>
+            <SelectContent className="shad-select-content">
+              {props.children}
+            </SelectContent>
+          </Select>
+        </FormControl>
+      );
+      case FormFieldType.TEXTAREA:
+        return(
+          <FormControl>
+            <Textarea
+              placeholder={placeholder}
+              {...field}
+              className="shad-textArea"
+              disabled={disabled}
+            />
+          </FormControl>
+        )
+    }
 };
 
 const CustomFormField = (props: CustomProps) => {
