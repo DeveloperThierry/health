@@ -54,3 +54,29 @@ declare type SearchParamProps = {
     appointment: Appointment;
     type: string;
   };
+
+  declare type FileUploaderProps = {
+    files: File[] | undefined,
+    onChange:(files:File[]) => void
+  }
+
+  declare interface CustomProps {
+    control: Control<any>;
+    fieldType: FormFieldType;
+    name: string;
+    label?: string;
+    placeholder?: string;
+    iconSrc?: string;
+    iconAlt?: string;
+    disabled?: boolean;
+    dateFormat?: string;
+    showTimeSelect?: boolean;
+    children?: React.ReactNode;
+    renderSkeleton?: (field: any) => React.ReactNode;
+  }
+
+  declare interface ButtonProps {
+      isLoading: boolean;
+      className?: string;
+      children: React.ReactNode;
+    }
