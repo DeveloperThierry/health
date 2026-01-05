@@ -86,3 +86,26 @@ export const getRecentAppointmentsList = async () => {
     console.log(error);
   }
 };
+
+export const updateAppointment = async({ appointmentId,
+  userId,
+  appointment,
+  type}:UpdateAppointmentParams) => {
+  try{
+
+    const updatedAppointment = await databases.updateDocument(
+      DATABASE_ID!,
+      APPOINTMENT_COLLECTION_ID!,
+      appointmentId,
+      appointment
+    );
+    
+    if (!updatedAppointment) throw Error;
+
+    //send sms
+    revalidatePath("/admin");
+    return parseStringify(updatedAppointment);
+  }catch(error){
+    console.log(error);
+  }
+}
