@@ -7,7 +7,6 @@ import React from "react";
 const Register = async ({params} : SearchParamProps) => {
   const { userId } = await params;
   const user = await getUser(userId);
-  console.log(user)
   return (
     <div className="flex h-screen max-h-screen">
       {/* OTP VERIFICATION | PassKeyModal */}
