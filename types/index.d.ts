@@ -80,3 +80,10 @@ declare type SearchParamProps = {
       className?: string;
       children: React.ReactNode;
     }
+
+    declare interface StatCardProps{
+      type: "appointments" | "pending" | "cancelled";
+      count: number;
+      label: string;
+      icon: string;
+    }
