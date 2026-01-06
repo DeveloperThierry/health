@@ -19,25 +19,19 @@ import Image from "next/image";
 import AppointmentModal from "../AppointmentModal";
 import { Appointment } from "@/types/appwrite.types";
 
-// export type Payment = {
-//   id: string;
-//   amount: number;
-//   status: "pending" | "processing" | "success" | "failed";
-//   email: string;
-// };
-
 export const columns: ColumnDef<Appointment>[] = [
   {
     header: "ID",
     cell: ({ row }) => <p className="text-14-medium">{row.index + 1}</p>,
   },
-  // {
-  //   accessorKey: "patient",
-  //   header: "Patient ID",
-  //   cell: ({ row }) => {
-  //     return <p className="text-14-medium">{row.original.patient?.name}</p>;
-  //   },
-  // },
+  {
+    accessorKey: "patient",
+    header: "Patient",
+    cell: ({ row }) => {
+      // console.log("ROW.ORIGINAL.PATIENT: ", row.original.patient)
+      return <p className="text-14-medium">{row.original.patient.name}</p>;
+    },
+  },
   {
     accessorKey: "status",
     header: "Status",
