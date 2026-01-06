@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+![View 1](/public/view/view1.png)
+![View 2](/public/view/view2.png)
+![View 3](/public/view/view3.png)
+![View 4](/public/view/view4.png)
+![View 5](/public/view/view5.png)
+![View 6](/public/view/view6.png)
+![View 7](/public/view/view7.png)
+![View 8](/public/view/view8.png)
+# 🏥 Patient Management System
 
-First, run the development server:
+A healthcare administration platform designed to streamline patient registration, appointment scheduling, and medical records management through a centralized digital dashboard.
 
+---
+
+## ✨ Features
+
+* 📝 **Patient Onboarding:** Secure and intuitive registration flow for new patients with file upload capabilities.
+* 📅 **Appointment Management:** Real-time scheduling, canceling, and rescheduling of medical appointments via the web interface.
+* 🧑‍⚕️ **Admin Dashboard:** Comprehensive overview for healthcare providers to manage patient lists and pending requests.
+* 🔒 **Data Security:** Robust handling of patient information and medical records using Appwrite's backend services.
+* 📱 **Responsive Design:** Fully optimized interface for mobile, tablet, and desktop views using TailwindCSS and ShadCN.
+
+---
+
+## 💻 Tech Stack
+
+* **Framework:** Next.js (App Router)
+* **Backend as a Service:** Appwrite
+* **Language:** TypeScript
+* **Styling:** TailwindCSS & ShadCN
+
+---
+
+## 🚀 Installation
+
+Follow these steps to set up the project locally.
+
+### 🛠️ Setup Steps
+
+1. **Clone the repository:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/DeveloperThierry/health.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies:**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Environment Configuration:**
+Create a `.env.local` file in the root directory and add your Appwrite credentials:
+```env
+#APPWRITE
+NEXT_PUBLIC_ENDPOINT=https://cloud.appwrite.io/v1
+PROJECT_ID=
+API_KEY=
+DATABASE_ID=
+PATIENT_COLLECTION_ID=
+APPOINTMENT_COLLECTION_ID=
+DOCTOR_COLLECTION_ID=
+NEXT_PUBLIC_BUCKET_ID=
+NEXT_PUBLIC_ADMIN_PASSKEY=111111
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Run the development server:**
+```bash
+npm run dev
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+### 📅 Booking an Appointment
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Patients can select their preferred doctor and date through the booking portal. Upon submission, the status is set to "Pending" and appears on the admin dashboard.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🧑‍⚕️ Admin Access
 
-## Deploy on Vercel
+Access the dashboard at `/admin` to view all scheduled appointments, update appointment statuses, and manage the patient database in real-time.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🤝 Contributing
+
+We welcome contributions to improve CarePulse! Please review our [CONTRIBUTING.md](https://github.com/DeveloperThierry/health/blob/main/CONTRIBUTING.md) for guidelines on how to submit pull requests and report issues.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**. For more details, please see the [LICENSE](https://github.com/DeveloperThierry/health/blob/main/LICENSE) file.
+
+---
+
+## 🙏 Contributions
+
+Special thanks to JSMastery for project guidance and assets
